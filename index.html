@@ -9,7 +9,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Academia de Bolso</title>
+    <title>Treino Fácil</title>
 </head>
 
 <body>
@@ -26,11 +26,6 @@
 
         <!-- <div class="container-fluid treinos py-3"></div> -->
 
-        <div class="container-fluid botao d-grid gap-2 pt-3">
-            <button id="criar-treino" type="submit" class="btn btn-primary">Criar Treino</button>
-        </div>
-
-
         <form action="" class="container-fluid">
 
             <div id="treino-topo"></div>
@@ -39,18 +34,19 @@
 
             <div id="btn-adicionar-exercicio"></div>
 
-            <div id="btn-salvar-treino"></div>
-
         </form>
 
-        <div id="infos" class="container-fluid text-light py-3">
+        <div id="infos-treino" class="container-fluid my-3 py-1 bg-light">
             <p id="info-nome-treino" class="text-center fs-2"></p>
-            <p id="info-descricao" class="text-center fs-3"></p>
-            <p id="info-nome-exercicio" class="fs-4"></p>
-            <p id="info-series" class="fs-5"></p>
-            <p id="info-repeticoes" class="fs-5"></p>
-            <p id="info-carga" class="fs-5"></p>
-            <p id="info-intervalo" class="fs-5"></p>
+            <p id="info-descricao" class="text-center fs-3"><span></span></p>
+            <ul id="exercicios"></ul>
+            <div class="bg-info">
+                <p id="info-nome-exercicio" class="fs-4"><span></span></p>
+                <p id="info-series" class="fs-5"><span></span></p>
+                <p id="info-repeticoes" class="fs-5"><span></span></p>
+                <p id="info-carga" class="fs-5"><span></span></p>
+                <p id="info-intervalo" class="fs-5"><span></span></p>
+            </div>
         </div>
 
 

@@ -1,8 +1,7 @@
 export default function Exercicio(id) {
     return `
-    <div class="mb-3 display-6 text-light text-center">
-        <span id="numero-exercicio">${id}</span>
-    </div>
+    <p class="text-light display-4">Dados do Exercício ${id}</p>
+
     <div class="input-group mb-3">
         <span class="input-group-text col-4">Exercício: </span>
         <input id="nome-exercicio" type="text" class="form-control col-4" aria-label="" required>
