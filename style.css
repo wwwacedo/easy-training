@@ -2,14 +2,29 @@ img {
     height: 10vh;
 }
 
-.treinos, form, .botao, #infos-treino {
-    max-width: 500px;
+header {
+    background-color: #F3F4F5;
 }
 
 main {
-    background-color: #1E293B;
+    background-color: #0C1115;
     height: 100%;
     min-height: 100vh;
+}
+
+#conteudo {
+    max-width: 500px;
+}
+
+#inputs-exercicio, #btn-adicionar-exercicio {
+    width: 90%;
+    margin: auto;
+}
+
+.botao {
+    background-color: #235789;
+    color: #F8FAFC;
+
 }
 
 .hidden {
