@@ -1,13 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Lobster&display=swap');
+
+
 img {
-    height: 10vh;
+    height: 8vh;
 }
 
 header {
     background-color: #F3F4F5;
 }
 
+header div {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    font-family: 'Lobster', cursive;
+}
+
 main {
-    background-color: #0C1115;
+    background-color: #9DADBC;
     height: 100%;
     min-height: 100vh;
 }
@@ -16,7 +24,7 @@ main {
     max-width: 500px;
 }
 
-#inputs-exercicio, #btn-adicionar-exercicio {
+#inputs-exercicio, #btn-adicionar-exercicio, #infos-treino {
     width: 90%;
     margin: auto;
 }

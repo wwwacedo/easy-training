@@ -12,7 +12,6 @@ const $btnSalvarTreino = document.querySelector('#btn-salvar-treino');
 const $form = document.querySelector('form');
 const $infos = document.querySelector('#infos-treino');
 
-
 const $infoNomeTreino = $infos.querySelector('#info-nome-treino');
 const $infoDescricao = $infos.querySelector('#info-descricao');
 const $infoNomeExercicio = $infos.querySelector('#info-nome-exercicio');
@@ -51,11 +50,11 @@ const $allInputs = document.querySelectorAll('input');
 
 $form.addEventListener('keyup', (e) => {
     switch (e.target.id) {
-        case 'nome-treino': 
-            $infoNomeTreino.innerHTML = `Treino: <span>${$inputNomeTreino.value}</span>`;
+        case 'nome-treino':
+            $infoNomeTreino.innerHTML = `Nome do Treino: <span>${$inputNomeTreino.value}</span>`;
             break;
         case 'descricao':
-            $infoDescricao.innerHTML = `Descrição: <span>${$inputDescricao.value}</span>`;
+            $infoDescricao.innerHTML = `Descrição do Treino: <span>${$inputDescricao.value}</span>`;
             break;
         case 'nome-exercicio':
             $infoNomeExercicio.innerHTML = `${id(exercicios)}. <span>${$inputNomeExercicio.value}</span>`;
@@ -95,8 +94,8 @@ $form.addEventListener('change', (e) => {
 $btnAdicionarExercicio.addEventListener('click', (e) => {
     e.preventDefault();
     salvarExercicio();
-    $infosExercicios.forEach((info) => {info.textContent = ''});
-    $inputsExercicios.forEach((input) => {input.value = ''});
+    $infosExercicios.forEach((info) => { info.textContent = '' });
+    $inputsExercicios.forEach((input) => { input.value = '' });
     criarInfoExercicios(exercicios);
 });
 
@@ -114,11 +113,11 @@ function salvarExercicio() {
 }
 
 function criarInfoExercicios(arr) {
-    
+
     $ulExercicios.innerHTML = '';
     arr.forEach(exercicio => {
         const $li = document.createElement('li');
-        $li.innerHTML = `${exercicio.id}. ${exercicio.nome} | ${exercicio.series} x ${exercicio.repeticoes} reps | ${exercicio.carga ? `${exercicio.carga} kg | ` : ``}${exercicio.intervalo} seg.`;
+        $li.innerHTML = `${exercicio.nome} | ${exercicio.series} x ${exercicio.repeticoes} reps | ${exercicio.carga ? `${exercicio.carga} kg | ` : ``}${exercicio.intervalo} seg.`;
         $ulExercicios.appendChild($li);
     })
 }
@@ -153,12 +152,12 @@ function criarTreinos(treinos) {
     treinos.forEach((treino) => {
         const $div = document.createElement('div');
         $div.classList.add('mb-3');
-        $div.innerHTML = Treino({...treino});
+        $div.innerHTML = Treino({ ...treino });
         const $newDiv = $div.querySelector('.card-body');
-        $newDiv.innerHTML = Exercicios({...treino});
+        $newDiv.innerHTML = Exercicios({ ...treino });
         $treinos.appendChild($div);
     })
-    
+
 }
 
 function updateLocalStorage() {
