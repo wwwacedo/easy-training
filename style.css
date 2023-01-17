@@ -25,8 +25,11 @@ main {
 }
 
 #inputs-exercicio, #btn-adicionar-exercicio, #infos-treino {
-    width: 90%;
     margin: auto;
+}
+
+#inputs-exercicio {
+    background-color: aqua;
 }
 
 .botao {
@@ -35,7 +38,4 @@ main {
 
 }
 
-.hidden {
-    visibility: hidden;
-}
 

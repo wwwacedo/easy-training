@@ -10,22 +10,22 @@ const $InputsExercicio = document.querySelector('#inputs-exercicio');
 const $btnAdicionarExercicio = document.querySelector('#btn-adicionar-exercicio');
 const $btnSalvarTreino = document.querySelector('#btn-salvar-treino');
 const $form = document.querySelector('form');
-const $infos = document.querySelector('#infos-treino');
 
-const $infoNomeTreino = $infos.querySelector('#info-nome-treino');
-const $infoDescricao = $infos.querySelector('#info-descricao');
-const $infoNomeExercicio = $infos.querySelector('#info-nome-exercicio');
-const $infoSeries = $infos.querySelector('#info-series');
-const $infoRepeticoes = $infos.querySelector('#info-repeticoes');
-const $infoCarga = $infos.querySelector('#info-carga');
-const $infoIntervalo = $infos.querySelector('#info-intervalo');
+
+const $infoNomeTreino = $form.querySelector('#info-nome-treino');
+const $infoDescricao = $form.querySelector('#info-descricao');
+const $infoNomeExercicio = $form.querySelector('#info-nome-exercicio');
+const $infoSeries = $form.querySelector('#info-series');
+const $infoRepeticoes = $form.querySelector('#info-repeticoes');
+const $infoCarga = $form.querySelector('#info-carga');
+const $infoIntervalo = $form.querySelector('#info-intervalo');
+const $infosTreino = [$infoNomeTreino, $infoDescricao];
 const $infosExercicios = [$infoNomeExercicio, $infoSeries, $infoRepeticoes, $infoCarga, $infoIntervalo];
 const $allInfos = document.querySelectorAll('.info');
 
 const treinos = JSON.parse(localStorage.getItem('treinos')) || [];
 
 criarTreinos(treinos);
-
 
 let exercicios = [];
 const id = (arg) => {
@@ -45,8 +45,11 @@ const $inputRepeticoes = $form.querySelector('#repeticoes');
 const $inputCarga = $form.querySelector('#carga');
 const $inputIntervalo = $form.querySelector('#intervalo');
 const $ulExercicios = document.querySelector('#exercicios');
+const $inputsTreino = [$inputNomeTreino, $inputDescricao];
 const $inputsExercicios = [$inputNomeExercicio, $inputSeries, $inputRepeticoes, $inputCarga, $inputIntervalo];
 const $allInputs = document.querySelectorAll('input');
+
+
 
 $form.addEventListener('keyup', (e) => {
     switch (e.target.id) {
@@ -57,7 +60,7 @@ $form.addEventListener('keyup', (e) => {
             $infoDescricao.innerHTML = `Descrição do Treino: <span>${$inputDescricao.value}</span>`;
             break;
         case 'nome-exercicio':
-            $infoNomeExercicio.innerHTML = `${id(exercicios)}. <span>${$inputNomeExercicio.value}</span>`;
+            $infoNomeExercicio.innerHTML = `<span>${$inputNomeExercicio.value}</span>`;
             break;
         case 'series':
             $infoSeries.innerHTML = `Séries: <span>${$inputSeries.value}</span>`;
@@ -72,6 +75,18 @@ $form.addEventListener('keyup', (e) => {
             $infoIntervalo.innerHTML = `Intervalo: <span>${$inputIntervalo.value}</span> seg.`;
             break;
     }
+    if ($inputsTreino.some((input) => input.value != '')) {
+        $form.querySelector('#infos-treino').classList.remove('d-none')
+    } else {
+        $form.querySelector('#infos-treino').classList.add('d-none')
+    }
+
+    if ($inputsExercicios.some((input) => input.value != '')) {
+        $form.querySelector('#infos-exercicios').classList.remove('d-none')
+    } else {
+        $form.querySelector('#infos-exercicios').classList.add('d-none')
+    }
+    
 });
 
 $form.addEventListener('change', (e) => {
@@ -89,10 +104,23 @@ $form.addEventListener('change', (e) => {
             $infoIntervalo.innerHTML = `Intervalo: <span>${$inputIntervalo.value}</span> seg.`;
             break;
     }
+    if($inputsTreino.some((input) => input.value != '')) {
+        $form.querySelector('#infos-treino').classList.remove('d-none')
+    } else {
+        $form.querySelector('#infos-treino').classList.add('d-none')
+    }
+
+    if($inputsExercicios.some((input) => input.value != '')) {
+        $form.querySelector('#infos-exercicios').classList.remove('d-none')
+    } else {
+        $form.querySelector('#infos-exercicios').classList.add('d-none')
+    }
+    
 });
 
 $btnAdicionarExercicio.addEventListener('click', (e) => {
     e.preventDefault();
+    $form.querySelector('#infos-exercicios').classList.add('d-none')
     salvarExercicio();
     $infosExercicios.forEach((info) => { info.textContent = '' });
     $inputsExercicios.forEach((input) => { input.value = '' });
