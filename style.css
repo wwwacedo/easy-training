@@ -1,12 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Lobster&display=swap');
 
+:root {
+    --azul-escuro: #2600A3;
+    --azul-claro: #004FDD;
+    --roxo: #B10087;
+    --rosa: #EF0063;
+    --laranja-escuro: ##FF6C45;
+    --laranja-claro: #FFB641;
+    --amarelo: #F9F871;
+    --branco: #FEF6FF;
+    --cinza-escuro: #1F1926;
+    --cinza-medio: #4B4453;
+    --cinza-claro: #B0A8B9;
+}
 
 img {
     height: 8vh;
 }
 
+body {
+    color: var(--cinza-medio);
+}
+
 header {
-    background-color: #F3F4F5;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    
 }
 
 header div {
@@ -15,12 +34,16 @@ header div {
 }
 
 main {
-    background-color: #9DADBC;
+    background-color: var(--branco);
+    
     height: 100%;
     min-height: 100vh;
 }
 
 #conteudo {
+    background-color: var();
+    box-shadow: 0 2px 10px 1px var(--cinza-escuro);
+   
     max-width: 500px;
 }
 
@@ -29,13 +52,19 @@ main {
 }
 
 #inputs-exercicio {
-    background-color: aqua;
+    background-color: var(--rosa);
+    /* box-shadow: 0 1px 8px 1px var(--cinza-medio); */
 }
 
 .botao {
-    background-color: #235789;
+    background-color: var(--rosa);
     color: #F8FAFC;
-
+    width: 50%;
+    margin: auto;
+    height: 50px;
+    border: 1px solid var(--cinza-escuro);
 }
 
-
+ul {
+    margin: 0
+}

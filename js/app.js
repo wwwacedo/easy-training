@@ -49,31 +49,31 @@ const $inputsTreino = [$inputNomeTreino, $inputDescricao];
 const $inputsExercicios = [$inputNomeExercicio, $inputSeries, $inputRepeticoes, $inputCarga, $inputIntervalo];
 const $allInputs = document.querySelectorAll('input');
 
-
+let topoTreinoDefinido = false;
 
 $form.addEventListener('keyup', (e) => {
     switch (e.target.id) {
         case 'nome-treino':
-            $infoNomeTreino.innerHTML = `Nome do Treino: <span>${$inputNomeTreino.value}</span>`;
-            break;
+            $infoNomeTreino.innerHTML = `${$inputNomeTreino.value ? `Nome: <span>${$inputNomeTreino.value}</span>` : ''}`;
+           
         case 'descricao':
-            $infoDescricao.innerHTML = `Descrição do Treino: <span>${$inputDescricao.value}</span>`;
-            break;
+            $infoDescricao.innerHTML = `${$inputDescricao.value ? `Descrição: <span>${$inputDescricao.value}</span>`: ''}`;
+          
         case 'nome-exercicio':
             $infoNomeExercicio.innerHTML = `<span>${$inputNomeExercicio.value}</span>`;
-            break;
+         
         case 'series':
-            $infoSeries.innerHTML = `Séries: <span>${$inputSeries.value}</span>`;
-            break;
+            $infoSeries.innerHTML = `${$inputSeries.value ? `Séries: <span>${$inputSeries.value}</span>`: ''}`;
+        
         case 'repeticoes':
-            $infoRepeticoes.innerHTML = `Repetições: <span>${$inputRepeticoes.value}</span>`;
-            break;
+            $infoRepeticoes.innerHTML = `${$inputRepeticoes.value ? `Repetições: <span>${$inputRepeticoes.value}</span>`: ''}`;
+          
         case 'carga':
-            $infoCarga.innerHTML = `Carga: <span>${$inputCarga.value}</span> Kg`;
-            break;
+            $infoCarga.innerHTML = `${$inputCarga.value ? `Carga: <span>${$inputCarga.value}</span> Kg`: ''}`;
+           
         case 'intervalo':
-            $infoIntervalo.innerHTML = `Intervalo: <span>${$inputIntervalo.value}</span> seg.`;
-            break;
+            $infoIntervalo.innerHTML = `${$inputIntervalo.value ? `Intervalo: <span>${$inputIntervalo.value}</span> seg.` : ''}`;
+           
     }
     if ($inputsTreino.some((input) => input.value != '')) {
         $form.querySelector('#infos-treino').classList.remove('d-none')
@@ -92,17 +92,17 @@ $form.addEventListener('keyup', (e) => {
 $form.addEventListener('change', (e) => {
     switch (e.target.id) {
         case 'series':
-            $infoSeries.innerHTML = `Séries: <span>${$inputSeries.value}</span>`;
-            break;
+            $infoSeries.innerHTML = `${$inputSeries.value ? `Séries: <span>${$inputSeries.value}</span>` : ''}`;
+            
         case 'repeticoes':
-            $infoRepeticoes.innerHTML = `Repetições: <span>${$inputRepeticoes.value}</span>`;
-            break;
+            $infoRepeticoes.innerHTML = `${$inputRepeticoes.value ? `Repetições: <span>${$inputRepeticoes.value}</span>` : ''}`;
+            
         case 'carga':
-            $infoCarga.innerHTML = `Carga: <span>${$inputCarga.value}</span> Kg`;
-            break;
+            $infoCarga.innerHTML = `${$inputCarga.value ? `Carga: <span>${$inputCarga.value}</span> Kg` : ''}`;
+           
         case 'intervalo':
-            $infoIntervalo.innerHTML = `Intervalo: <span>${$inputIntervalo.value}</span> seg.`;
-            break;
+            $infoIntervalo.innerHTML = `${$inputIntervalo.value ? `Intervalo: <span>${$inputIntervalo.value}</span> seg.` : ''}`;
+            
     }
     if($inputsTreino.some((input) => input.value != '')) {
         $form.querySelector('#infos-treino').classList.remove('d-none')
@@ -120,11 +120,24 @@ $form.addEventListener('change', (e) => {
 
 $btnAdicionarExercicio.addEventListener('click', (e) => {
     e.preventDefault();
-    $form.querySelector('#infos-exercicios').classList.add('d-none')
-    salvarExercicio();
-    $infosExercicios.forEach((info) => { info.textContent = '' });
-    $inputsExercicios.forEach((input) => { input.value = '' });
-    criarInfoExercicios(exercicios);
+
+    if($inputNomeTreino.value && $inputNomeExercicio.value) {
+        console.log($inputNomeTreino)
+        $inputNomeTreino.setAttribute('disabled', '')
+        
+        if (exercicios.length === 0) $ulExercicios.classList.remove('d-none');
+        
+        if($inputDescricao) $inputNomeTreino.setAttribute('disabled', '')
+   
+        $form.querySelector('#infos-exercicios').classList.add('d-none')
+        
+        salvarExercicio();
+        
+        $infosExercicios.forEach((info) => { info.textContent = '' });
+        $inputsExercicios.forEach((input) => { input.value = '' });
+        criarInfoExercicios(exercicios);
+    }
+
 });
 
 
@@ -145,7 +158,11 @@ function criarInfoExercicios(arr) {
     $ulExercicios.innerHTML = '';
     arr.forEach(exercicio => {
         const $li = document.createElement('li');
-        $li.innerHTML = `${exercicio.nome} | ${exercicio.series} x ${exercicio.repeticoes} reps | ${exercicio.carga ? `${exercicio.carga} kg | ` : ``}${exercicio.intervalo} seg.`;
+        const series = `${exercicio.series ? `| ${exercicio.series} S ` : ``}`;
+        const reps = `${exercicio.repeticoes ? `| ${exercicio.repeticoes} R `: ``}`
+        const carga = `${exercicio.carga ? `| ${exercicio.carga} kg ` : ``}`;
+        const intervalo = `${exercicio.intervalo ? `| ${exercicio.intervalo} seg.` : ``}`;
+        $li.innerHTML = `${exercicio.nome} ${series}${reps}${carga}${intervalo}`;
         $ulExercicios.appendChild($li);
     })
 }
@@ -159,7 +176,8 @@ $btnSalvarTreino.addEventListener('click', (e) => {
     $allInputs.forEach((input) => input.value = '');
     exercicios = [];
     $ulExercicios.innerHTML = '';
-    // salvar treino no localStorage
+    $inputNomeTreino.removeAttribute('disabled', '')
+    $inputDescricao.removeAttribute('disabled', '')
 });
 
 function salvarTreino() {

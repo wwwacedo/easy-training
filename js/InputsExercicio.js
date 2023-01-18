@@ -5,7 +5,7 @@ export default function InputsExercicio(id) {
         <label for="nome-exercicio">Nome do Exercício</label>
     </div>
     
-    <div class="row g-1">
+    <div class="row mt-2 g-1">
         <div class="form-floating me-1 col">
             <input type="number" class="form-control" id="series" placeholder="Séries" min="1">
             <label for="series">Séries</label>
@@ -16,9 +16,9 @@ export default function InputsExercicio(id) {
         </div>
     </div>
     
-    <div class="row g-1">
+    <div class="row g-1 mt-2">
         <div class="form-floating me-1 col">
-            <input type="number" class="form-control" id="carga" placeholder="Carga">
+            <input type="number" class="form-control" id="carga" min="1" placeholder="Carga">
             <label for="carga">Carga (kg)</label>
         </div>
 
