@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Lobster&display=swap');
 
 :root {
-    --azul-escuro: #2600A3;
-    --azul-claro: #004FDD;
-    --roxo: #B10087;
-    --rosa: #EF0063;
-    --laranja-escuro: ##FF6C45;
-    --laranja-claro: #FFB641;
-    --amarelo: #F9F871;
-    --branco: #FEF6FF;
-    --cinza-escuro: #1F1926;
-    --cinza-medio: #4B4453;
+    --roxo-escuro: #6F2DF4;
+    --roxo-claro: #D486FF;
+    --verde-claro: #00B88F;
+    --verde-escuro: #007E5D;
+    --branco: #FDF7FF;
+    --preto: #1F1926;
+    --cinza-escuro: #4B4453;
     --cinza-claro: #B0A8B9;
+    --azul-escuro: #000099;
 }
 
 img {
@@ -19,11 +17,11 @@ img {
 }
 
 body {
-    color: var(--cinza-medio);
+    color: var(--cinza-escuro);
 }
 
 header {
-    background-color: var(--azul-escuro);
+    background-color: var(--roxo-escuro);
     color: var(--branco);
     
 }
@@ -34,35 +32,49 @@ header div {
 }
 
 main {
-    background-color: var(--branco);
-    
+    background-color: var(--cinza-escuro);
     height: 100%;
     min-height: 100vh;
 }
 
 #conteudo {
-    background-color: var();
-    box-shadow: 0 2px 10px 1px var(--cinza-escuro);
-   
+    background-color: var(--branco);
+    /* box-shadow: 0 2px 10px 1px var(); */
     max-width: 500px;
 }
+
 
 #inputs-exercicio, #btn-adicionar-exercicio, #infos-treino {
     margin: auto;
 }
 
 #inputs-exercicio {
-    background-color: var(--rosa);
+    background-color: var(--roxo-claro);
     /* box-shadow: 0 1px 8px 1px var(--cinza-medio); */
 }
 
-.botao {
-    background-color: var(--rosa);
-    color: #F8FAFC;
-    width: 50%;
-    margin: auto;
-    height: 50px;
-    border: 1px solid var(--cinza-escuro);
+#exercicios {
+    background-color: var(--cinza-claro);
+    color: var(--preto);
+}
+
+#infos-exercicios {
+    background-color: var(--verde-claro);
+    color: var(--preto);
+}
+
+.card-body-exercicio{
+    background-color: #954EFF;
+    color: var(--branco);
+}
+
+.botao-acoes {
+    background-color: var(--roxo-escuro);
+    color: var(--branco);
+}
+
+.botao-treino {
+    background-color: var(--azul-escuro);
 }
 
 ul {

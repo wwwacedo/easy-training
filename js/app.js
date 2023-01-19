@@ -119,7 +119,6 @@ $form.addEventListener('change', (e) => {
 });
 
 $btnAdicionarExercicio.addEventListener('click', (e) => {
-    e.preventDefault();
 
     if($inputNomeTreino.value && $inputNomeExercicio.value) {
         console.log($inputNomeTreino)
@@ -140,7 +139,6 @@ $btnAdicionarExercicio.addEventListener('click', (e) => {
 
 });
 
-
 function salvarExercicio() {
     const exercicio = {
         id: id(exercicios),
@@ -154,7 +152,6 @@ function salvarExercicio() {
 }
 
 function criarInfoExercicios(arr) {
-
     $ulExercicios.innerHTML = '';
     arr.forEach(exercicio => {
         const $li = document.createElement('li');
@@ -170,14 +167,20 @@ function criarInfoExercicios(arr) {
 $btnSalvarTreino.addEventListener('click', (e) => {
     e.preventDefault();
     // mostrar modal com o treino montado
-    salvarTreino();
-    criarTreinos(treinos);
-    $allInfos.forEach((info) => info.textContent = '');
-    $allInputs.forEach((input) => input.value = '');
-    exercicios = [];
-    $ulExercicios.innerHTML = '';
-    $inputNomeTreino.removeAttribute('disabled', '')
-    $inputDescricao.removeAttribute('disabled', '')
+    if (exercicios.length !== 0) {
+        salvarTreino();
+        criarTreinos(treinos);
+        $allInfos.forEach((info) => info.textContent = '');
+        $allInputs.forEach((input) => input.value = '');
+        exercicios = [];
+        $ulExercicios.innerHTML = '';
+        $inputNomeTreino.removeAttribute('disabled', '')
+        $inputDescricao.removeAttribute('disabled', '')
+        $form.querySelector('#infos-treino').classList.add('d-none')
+        $form.querySelector('#infos-exercicios').classList.add('d-none')
+    } else {
+        alert("Não há exercícios salvos!")
+    }
 });
 
 function salvarTreino() {
@@ -189,7 +192,7 @@ function salvarTreino() {
     }
     exercicios.forEach((ex) => treino.exercicios.push(ex));
     treinos.push(treino);
-    updateLocalStorage()
+    updateLocalStorage();
 }
 
 function criarTreinos(treinos) {
@@ -197,13 +200,12 @@ function criarTreinos(treinos) {
     $treinos.innerHTML = '';
     treinos.forEach((treino) => {
         const $div = document.createElement('div');
-        $div.classList.add('mb-3');
         $div.innerHTML = Treino({ ...treino });
-        const $newDiv = $div.querySelector('.card-body');
+        const $newDiv = $div.querySelector('.card-body-treino');
         $newDiv.innerHTML = Exercicios({ ...treino });
+        // const $btn = $div.querySelector('.card-body-treino');
         $treinos.appendChild($div);
     })
-
 }
 
 function updateLocalStorage() {
