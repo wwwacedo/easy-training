@@ -23,7 +23,7 @@ const $infosTreino = [$infoNomeTreino, $infoDescricao];
 const $infosExercicios = [$infoNomeExercicio, $infoSeries, $infoRepeticoes, $infoCarga, $infoIntervalo];
 const $allInfos = document.querySelectorAll('.info');
 
-const treinos = JSON.parse(localStorage.getItem('treinos')) || [];
+let treinos = JSON.parse(localStorage.getItem('treinos')) || [];
 
 criarTreinos(treinos);
 
@@ -185,14 +185,18 @@ $btnSalvarTreino.addEventListener('click', (e) => {
 
 function salvarTreino() {
     const treino = {
-        id: id(treinos),
+        id: novoId(),
         nome: `${$inputNomeTreino.value}`,
         descricao: `${$inputDescricao.value}`,
         exercicios: []
     }
     exercicios.forEach((ex) => treino.exercicios.push(ex));
     treinos.push(treino);
-    updateLocalStorage();
+    updateLocalStorage(treinos);
+}
+
+function novoId() {
+    return Math.floor(Math.random() * 1000000);
 }
 
 function criarTreinos(treinos) {
@@ -205,11 +209,26 @@ function criarTreinos(treinos) {
         $newDiv.innerHTML = Exercicios({ ...treino });
         // const $btn = $div.querySelector('.card-body-treino');
         $treinos.appendChild($div);
+        $div.querySelector('.btnApagarTreino').addEventListener('click', function() {
+            const element = this.parentNode.parentNode.parentNode;
+            apagarTreino(element)
+            apagarBtnTreino(element)
+        })
     })
 }
 
-function updateLocalStorage() {
+function updateLocalStorage(treinos) {
     localStorage.setItem('treinos', JSON.stringify(treinos));
+}
+
+function apagarBtnTreino(element) {
+    element.remove();
+}
+
+function apagarTreino(element) {
+    const id = element.classList.item(1).split('-')[1];
+    treinos = treinos.filter(element => element.id != id);
+    updateLocalStorage(treinos)
 }
 
 // document.addEventListener('click', (e) => {

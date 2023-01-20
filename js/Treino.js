@@ -1,6 +1,6 @@
 export default function Treino({id, nome, descricao}) {
     return `
-    <div class="mb-3">
+    <div class="mb-3 treino-${id}">
         <div class="d-grid gap-2">
             <button class="btn btn-dark botao-treino" type="button" data-bs-toggle="collapse" data-bs-target="#treino-${id}" aria-expanded="false" aria-controls="treino-${id}">
                 <h3 class="display-6">${nome}</h3>
@@ -10,10 +10,13 @@ export default function Treino({id, nome, descricao}) {
         <div class="collapse" id="treino-${id}">
             <div class="card card-body card-body-treino">
             </div>
-            <button class="btn btn-danger fs-5 d-block">Apagar Treino</button>
+            <div class="d-grid gap-2">
+                <button class="btn btn-danger fs-5 d-block btnApagarTreino">Apagar ${nome}</button>
+            </div>
         </div>
     </div>
     `
 }
+
 
 
