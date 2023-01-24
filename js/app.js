@@ -165,19 +165,20 @@ function criarInfoExercicios(arr) {
 }
 
 $btnSalvarTreino.addEventListener('click', (e) => {
-    e.preventDefault();
-    // mostrar modal com o treino montado
     if (exercicios.length !== 0) {
-        salvarTreino();
-        criarTreinos(treinos);
-        $allInfos.forEach((info) => info.textContent = '');
-        $allInputs.forEach((input) => input.value = '');
-        exercicios = [];
-        $ulExercicios.innerHTML = '';
-        $inputNomeTreino.removeAttribute('disabled', '')
-        $inputDescricao.removeAttribute('disabled', '')
-        $form.querySelector('#infos-treino').classList.add('d-none')
-        $form.querySelector('#infos-exercicios').classList.add('d-none')
+        const resposta = confirm('Deseja salvar o treino?');
+        if (resposta === true) { 
+            salvarTreino();
+            criarTreinos(treinos);
+            $allInfos.forEach((info) => info.textContent = '');
+            $allInputs.forEach((input) => input.value = '');
+            exercicios = [];
+            $ulExercicios.innerHTML = '';
+            $inputNomeTreino.removeAttribute('disabled', '')
+            $inputDescricao.removeAttribute('disabled', '')
+            $form.querySelector('#infos-treino').classList.add('d-none')
+            $form.querySelector('#infos-exercicios').classList.add('d-none')
+        }
     } else {
         alert("Não há exercícios salvos!")
     }
@@ -203,13 +204,29 @@ function criarTreinos(treinos) {
     const $treinos = document.querySelector('#treinos');
     $treinos.innerHTML = '';
     treinos.forEach((treino) => {
-        const $div = document.createElement('div');
-        $div.innerHTML = Treino({ ...treino });
-        const $newDiv = $div.querySelector('.card-body-treino');
-        $newDiv.innerHTML = Exercicios({ ...treino });
-        // const $btn = $div.querySelector('.card-body-treino');
-        $treinos.appendChild($div);
-        $div.querySelector('.btnApagarTreino').addEventListener('click', function() {
+        const $divTreino = document.createElement('div');
+        $divTreino.innerHTML = Treino({ ...treino });
+        const $divExercicios = $divTreino.querySelector('.card-body-treino');
+        $divExercicios.innerHTML = Exercicios({ ...treino });
+
+        // const $btnEditar = $divExercicios.querySelectorAll('.btn-editar-treino');
+        // $btnEditar.forEach(btn => btn.addEventListener('click', function() {
+        //     const element = this.parentNode.parentNode.parentNode.parentNode; 
+        //     const $modal = element.querySelector('#exercicioDialog')
+        //     const $btnCancelar = element.querySelector('#cancelar');
+        //     const $btnConfirmar = element.querySelector('#confirmar');
+        //     $btnCancelar.addEventListener('click', function () {
+        //         $modal.close();
+        //     });
+        //     $btnConfirmar.addEventListener('click', function () {
+        //         const $inputs = $modal.querySelectorAll('input');
+        //         console.log($inputs)
+        //     })
+        //     $modal.showModal()
+        // }))
+
+        $treinos.appendChild($divTreino);
+        $divTreino.querySelector('.btnApagarTreino').addEventListener('click', function() {
             const element = this.parentNode.parentNode.parentNode;
             apagarTreino(element)
             apagarBtnTreino(element)
@@ -231,6 +248,3 @@ function apagarTreino(element) {
     updateLocalStorage(treinos)
 }
 
-// document.addEventListener('click', (e) => {
-//     console.log(e.target)
-// })

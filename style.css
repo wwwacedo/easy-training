@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Josefin+Sans&display=swap');
 
 :root {
-    --roxo-escuro: #6F2DF4;
-    --roxo-claro: #D486FF;
-    --verde-claro: #00B88F;
-    --verde-escuro: #007E5D;
-    --branco: #FDF7FF;
-    --preto: #1F1926;
-    --cinza-escuro: #4B4453;
-    --cinza-claro: #B0A8B9;
-    --azul-escuro: #000099;
+    --branco: #DADADA;
+    --cinza-escuro: #161926;
+    --cinza-medio: #252735;
+    --cinza-claro: #6C6C6E;
+    --azul-escuro: #3E82FC;
+    --azul-claro: #6FBBF9;
+    --preto: #000000;
+    --laranja: #F89833;
+    --rosa: #EA3764;
 }
 
 img {
@@ -21,14 +21,14 @@ body {
 }
 
 header {
-    background-color: var(--roxo-escuro);
+    background-color: var(--cinza-escuro);
     color: var(--branco);
     
 }
 
 header div {
     font-family: 'Encode Sans Condensed', sans-serif;
-    font-family: 'Lobster', cursive;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 main {
@@ -38,9 +38,10 @@ main {
 }
 
 #conteudo {
-    background-color: var(--branco);
+    background-color: var(--cinza-medio);
     /* box-shadow: 0 2px 10px 1px var(); */
     max-width: 500px;
+    border: 1px solid var(--preto);
 }
 
 
@@ -49,27 +50,27 @@ main {
 }
 
 #inputs-exercicio {
-    background-color: var(--roxo-claro);
+    background-color: var(--cinza-escuro);
+    border: 1px solid var(--branco);
     /* box-shadow: 0 1px 8px 1px var(--cinza-medio); */
 }
 
 #exercicios {
-    background-color: var(--cinza-claro);
+    background-color: var(--cinza-medio);
     color: var(--preto);
 }
 
 #infos-exercicios {
-    background-color: var(--verde-claro);
+    background-color: var(--azul-claro);
     color: var(--preto);
 }
 
-.card-body-exercicio{
-    background-color: #954EFF;
-    color: var(--branco);
+.card-body-treino {
+    background-color: var(--cinza-escuro);
 }
 
-.botao-acoes {
-    background-color: var(--roxo-escuro);
+.card-body-exercicio{
+    background-color: var(--cinza-medio);
     color: var(--branco);
 }
 
@@ -77,6 +78,25 @@ main {
     background-color: var(--azul-escuro);
 }
 
+.botao-add-exercicio {
+    background-color: var(--azul-claro);
+    color: var(--cinza-escuro);
+}
+
+.botao-add-treino {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+}
+
 ul {
     margin: 0
+}
+
+.dumbbell-icon, .id-exercicio {
+    color: var(--laranja);
+    
+}
+
+.plus-icon {
+    color: var(--rosa);
 }
