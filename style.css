@@ -58,14 +58,9 @@ main {
     border: 1px solid var(--cinza-claro)
 }
 
-#infos-treino {
+#infos-treino, #infos-exercicios {
     background-color: var(--cinza-escuro);
     color: var(--cinza-claro);
-}
-
-#infos-exercicios {
-    background-color: var(--cinza-escuro);
-    color: var(--branco);
 }
 
 .info-value {
@@ -153,4 +148,22 @@ li:last-child {
 
 .clock-icon {
     color: var(--azul-claro);
+}
+
+.triangle-exclamation-icon {
+    color: var(--amarelo);
+}
+
+.small {
+    font-size: .9em;
+}
+
+#footer {
+    background-color: #000000;
+    color: var(--branco);
+    width: 500px;
+}
+
+.tech-icon {
+    scale: 120%
 }

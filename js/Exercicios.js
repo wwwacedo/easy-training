@@ -4,13 +4,29 @@ export default function Exercicios({exercicios}) {
         <div>
             <div class="card card-body card-body-exercicio mx-1">
                 <div class="fw-bold fs-6"><span class="id-exercicio">${exercicio.id}</span> - <span class="fs-6">${exercicio.nome}</span></div>        
-                <div>
-                ${exercicio.series ? `<span>${exercicio.series} <i class="fa-solid fa-xmark xmark-icon"></i></span>` : ''}
-                ${exercicio.repeticoes ? `<span>${exercicio.repeticoes} rep.</span>` : ''}
-                ${exercicio.carga ? `<span><i class="fa-solid fa-dumbbell dumbbell-icon"></i> ${exercicio.carga} kg</span>` : ''}
-                ${exercicio.duracao ? `<span><i class="fa-solid fa-stopwatch stopwatch-icon"></i> ${exercicio.duracao} seg.</span>` : ''}
-                ${exercicio.intervalo ? `<span><i class="fa-regular fa-clock clock-icon"></i> ${exercicio.intervalo} seg.</span>` : ''}
-                </div>
+                
+                ${exercicio.series ? `<span class="small">${exercicio.series} <i class="fa-solid fa-xmark xmark-icon"></i></span>` : ''}
+                ${exercicio.repeticoes ? `<span class="small">${exercicio.repeticoes} rep.</span>` : ''}
+                ${exercicio.carga ? `
+                    <span class="small row">
+                        <div class="col-1"><i class="fa-solid fa-dumbbell dumbbell-icon"></i></div>
+                        <div class="col">${exercicio.carga} kg</div>
+                    </span>` : ''}
+                ${exercicio.duracao ? `
+                    <span class="small row">
+                        <div class="col-1"><i class="fa-solid fa-stopwatch stopwatch-icon"></i></div> 
+                        <div class="col">${exercicio.duracao} seg.</div>
+                    </span>` : ''}
+                ${exercicio.intervalo ? `
+                    <span class="small row">
+                        <div class="col-1"><i class="fa-regular fa-clock clock-icon"></i></div> 
+                        <div class="col">${exercicio.intervalo} seg.</div>
+                    </span>` : ''}
+                ${exercicio.observacao ? `
+                    <span class="small row">
+                        <div class="col-1"><i class="fa-solid fa-triangle-exclamation triangle-exclamation-icon"></i></div>  
+                        <div class="col">${exercicio.observacao}</div>
+                    </span>` : ''}
             </div>
         
         <dialog id="exercicioDialog">
