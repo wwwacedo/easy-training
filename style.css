@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Condensed:wght@400;500;600&family=Roboto&display=swap');
 
 :root {
     --branco: #DADADA;
@@ -10,6 +10,8 @@
     --preto: #000000;
     --laranja: #F89833;
     --rosa: #EA3764;
+    --verde: #35C482;
+    --amarelo: #F8C600;
 }
 
 img {
@@ -20,15 +22,11 @@ body {
     color: var(--cinza-escuro);
 }
 
-header {
+#title {
     background-color: var(--cinza-escuro);
-    color: var(--branco);
-    
-}
-
-header div {
+    color: var(--branco);  
     font-family: 'Encode Sans Condensed', sans-serif;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -41,28 +39,37 @@ main {
     background-color: var(--cinza-medio);
     /* box-shadow: 0 2px 10px 1px var(); */
     max-width: 500px;
-    border: 1px solid var(--preto);
+    border: 2px solid var(--preto);
 }
 
 
-#inputs-exercicio, #btn-adicionar-exercicio, #infos-treino {
+#inputs-topo, #inputs-exercicio, #btn-adicionar-exercicio, o#infos-trein {
     margin: auto;
+    color: var(--cinza-claro);
 }
 
 #inputs-exercicio {
     background-color: var(--cinza-escuro);
     border: 1px solid var(--branco);
-    /* box-shadow: 0 1px 8px 1px var(--cinza-medio); */
 }
 
 #exercicios {
-    background-color: var(--cinza-medio);
-    color: var(--preto);
+    color: var(--branco);
+    border: 1px solid var(--cinza-claro)
+}
+
+#infos-treino {
+    background-color: var(--cinza-escuro);
+    color: var(--cinza-claro);
 }
 
 #infos-exercicios {
-    background-color: var(--azul-claro);
-    color: var(--preto);
+    background-color: var(--cinza-escuro);
+    color: var(--branco);
+}
+
+.info-value {
+    color: var(--branco);
 }
 
 .card-body-treino {
@@ -72,6 +79,17 @@ main {
 .card-body-exercicio{
     background-color: var(--cinza-medio);
     color: var(--branco);
+    margin-bottom: 10px;
+}
+
+.card-body-exercicio:last-child {
+    margin-bottom: 0px;
+}
+
+.botao-add-exercicio, .botao-add-treino, .botao-treino {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
 }
 
 .botao-treino {
@@ -89,14 +107,50 @@ main {
 }
 
 ul {
-    margin: 0
+    margin: 0;
 }
 
-.dumbbell-icon, .id-exercicio {
+li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cinza-medio);
+}
+
+li:last-child {
+    border-bottom: 0px solid #000000;
+}
+
+
+.id-exercicio {
+    color: var(--branco);
+}
+
+.check-icon {
     color: var(--laranja);
-    
+    scale: 120%;
 }
 
 .plus-icon {
     color: var(--rosa);
+    scale: 120%;
+}
+
+.delete-icon {
+    color: var(--amarelo);
+    scale: 120%;
+}
+
+.dumbbell-icon {
+    color: var(--rosa);
+}
+
+.xmark-icon {
+    color: var(--verde);
+}
+
+.stopwatch-icon {
+    color: var(--laranja);
+}
+
+.clock-icon {
+    color: var(--azul-claro);
 }

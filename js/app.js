@@ -18,6 +18,7 @@ const $infoNomeExercicio = $form.querySelector('#info-nome-exercicio');
 const $infoSeries = $form.querySelector('#info-series');
 const $infoRepeticoes = $form.querySelector('#info-repeticoes');
 const $infoCarga = $form.querySelector('#info-carga');
+const $infoDuracao = $form.querySelector('#info-duracao');
 const $infoIntervalo = $form.querySelector('#info-intervalo');
 const $infosTreino = [$infoNomeTreino, $infoDescricao];
 const $infosExercicios = [$infoNomeExercicio, $infoSeries, $infoRepeticoes, $infoCarga, $infoIntervalo];
@@ -43,37 +44,51 @@ const $inputNomeExercicio = $form.querySelector('#nome-exercicio');
 const $inputSeries = $form.querySelector('#series');
 const $inputRepeticoes = $form.querySelector('#repeticoes');
 const $inputCarga = $form.querySelector('#carga');
+const $inputDuracao = $form.querySelector('#duracao');
 const $inputIntervalo = $form.querySelector('#intervalo');
-const $ulExercicios = document.querySelector('#exercicios');
+const $olExercicios = document.querySelector('#exercicios');
 const $inputsTreino = [$inputNomeTreino, $inputDescricao];
-const $inputsExercicios = [$inputNomeExercicio, $inputSeries, $inputRepeticoes, $inputCarga, $inputIntervalo];
+const $inputsExercicios = [$inputNomeExercicio, $inputSeries, $inputRepeticoes, $inputCarga, $inputDuracao, $inputIntervalo];
 const $allInputs = document.querySelectorAll('input');
 
-let topoTreinoDefinido = false;
+// let topoTreinoDefinido = false;
 
 $form.addEventListener('keyup', (e) => {
     switch (e.target.id) {
         case 'nome-treino':
-            $infoNomeTreino.innerHTML = `${$inputNomeTreino.value ? `Nome: <span>${$inputNomeTreino.value}</span>` : ''}`;
-           
+            $infoNomeTreino.innerHTML = `${$inputNomeTreino.value ? `Nome: <span class="info-value">${$inputNomeTreino.value}</span>` : ''}`;
+
         case 'descricao':
-            $infoDescricao.innerHTML = `${$inputDescricao.value ? `Descrição: <span>${$inputDescricao.value}</span>`: ''}`;
-          
+            $infoDescricao.innerHTML = `${$inputDescricao.value ? `Descrição: <span class="info-value">${$inputDescricao.value}</span>` : ''}`;
+
         case 'nome-exercicio':
-            $infoNomeExercicio.innerHTML = `<span>${$inputNomeExercicio.value}</span>`;
-         
+            $infoNomeExercicio.innerHTML = `<span class="info-value">${$inputNomeExercicio.value}</span>`;
+
         case 'series':
-            $infoSeries.innerHTML = `${$inputSeries.value ? `Séries: <span>${$inputSeries.value}</span>`: ''}`;
-        
+            $infoSeries.innerHTML = `${$inputSeries.value ?
+                `<span>${$inputSeries.value}</span>
+                <i class="fa-solid fa-xmark xmark-icon"></i>
+                ` : ''}`;
+
         case 'repeticoes':
-            $infoRepeticoes.innerHTML = `${$inputRepeticoes.value ? `Repetições: <span>${$inputRepeticoes.value}</span>`: ''}`;
-          
+            $infoRepeticoes.innerHTML = `${$inputRepeticoes.value ? `<span>${$inputRepeticoes.value}</span> reps.` : ''}`;
+
         case 'carga':
-            $infoCarga.innerHTML = `${$inputCarga.value ? `Carga: <span>${$inputCarga.value}</span> Kg`: ''}`;
-           
+            $infoCarga.innerHTML = `${$inputCarga.value ?
+                `<i class="fa-solid fa-dumbbell dumbbell-icon"></i>
+                <span>${$inputCarga.value}</span> Kg
+                ` : ''}`;
+
+        case 'duracao':
+            $infoDuracao.innerHTML = `${$inputDuracao.value ?
+                `<i class="fa-solid fa-stopwatch stopwatch-icon"></i>
+                <span>${$inputDuracao.value}</span> seg.` : ''}`;
+
         case 'intervalo':
-            $infoIntervalo.innerHTML = `${$inputIntervalo.value ? `Intervalo: <span>${$inputIntervalo.value}</span> seg.` : ''}`;
-           
+            $infoIntervalo.innerHTML = `${$inputIntervalo.value ?
+                `<i class="fa-regular fa-clock clock-icon"></i>
+                <span>${$inputIntervalo.value}</span> seg.` : ''}`;
+
     }
     if ($inputsTreino.some((input) => input.value != '')) {
         $form.querySelector('#infos-treino').classList.remove('d-none')
@@ -86,94 +101,144 @@ $form.addEventListener('keyup', (e) => {
     } else {
         $form.querySelector('#infos-exercicios').classList.add('d-none')
     }
-    
+
 });
 
 $form.addEventListener('change', (e) => {
     switch (e.target.id) {
         case 'series':
-            $infoSeries.innerHTML = `${$inputSeries.value ? `Séries: <span>${$inputSeries.value}</span>` : ''}`;
-            
+            $infoSeries.innerHTML = `${$inputSeries.value ?
+                `<span>${$inputSeries.value}</span>
+                <i class="fa-solid fa-xmark xmark-icon"></i>
+                ` : ''}`;
+
         case 'repeticoes':
-            $infoRepeticoes.innerHTML = `${$inputRepeticoes.value ? `Repetições: <span>${$inputRepeticoes.value}</span>` : ''}`;
-            
+            $infoRepeticoes.innerHTML = `${$inputRepeticoes.value ? `<span>${$inputRepeticoes.value}</span> reps.` : ''}`;
+
         case 'carga':
-            $infoCarga.innerHTML = `${$inputCarga.value ? `Carga: <span>${$inputCarga.value}</span> Kg` : ''}`;
-           
+            $infoCarga.innerHTML = `${$inputCarga.value ?
+                `<i class="fa-solid fa-dumbbell dumbbell-icon"></i>
+                <span>${$inputCarga.value}</span> Kg
+                ` : ''}`;
+
+        case 'duracao':
+            $infoDuracao.innerHTML = `${$inputDuracao.value ?
+                `<i class="fa-solid fa-stopwatch stopwatch-icon"></i>
+                <span>${$inputDuracao.value}</span> seg.` : ''}`;
+
         case 'intervalo':
-            $infoIntervalo.innerHTML = `${$inputIntervalo.value ? `Intervalo: <span>${$inputIntervalo.value}</span> seg.` : ''}`;
-            
+            $infoIntervalo.innerHTML = `${$inputIntervalo.value ?
+                `<i class="fa-regular fa-clock clock-icon"></i>
+                <span>${$inputIntervalo.value}</span> seg.` : ''}`;
+
     }
-    if($inputsTreino.some((input) => input.value != '')) {
+    if ($inputsTreino.some((input) => input.value != '')) {
         $form.querySelector('#infos-treino').classList.remove('d-none')
     } else {
         $form.querySelector('#infos-treino').classList.add('d-none')
     }
 
-    if($inputsExercicios.some((input) => input.value != '')) {
+    if ($inputsExercicios.some((input) => input.value != '')) {
         $form.querySelector('#infos-exercicios').classList.remove('d-none')
     } else {
         $form.querySelector('#infos-exercicios').classList.add('d-none')
     }
-    
+
 });
 
 $btnAdicionarExercicio.addEventListener('click', (e) => {
+    e.preventDefault();
+    if ($inputNomeTreino.value && $inputNomeExercicio.value) {
 
-    if($inputNomeTreino.value && $inputNomeExercicio.value) {
-        console.log($inputNomeTreino)
         $inputNomeTreino.setAttribute('disabled', '')
-        
-        if (exercicios.length === 0) $ulExercicios.classList.remove('d-none');
-        
-        if($inputDescricao) $inputNomeTreino.setAttribute('disabled', '')
-   
+
+        if (exercicios.length === 0) $olExercicios.classList.remove('d-none');
+
+        if ($inputDescricao.value) $inputDescricao.setAttribute('disabled', '')
+
         $form.querySelector('#infos-exercicios').classList.add('d-none')
-        
-        salvarExercicio();
-        
+
+        criarInfoExercicio();
+
         $infosExercicios.forEach((info) => { info.textContent = '' });
         $inputsExercicios.forEach((input) => { input.value = '' });
-        criarInfoExercicios(exercicios);
+    } else {
+        alert('Preencha, no mínimo, o nome do treino e do exercício a ser adicionado!')
     }
 
 });
 
-function salvarExercicio() {
-    const exercicio = {
-        id: id(exercicios),
-        nome: `${$inputNomeExercicio.value}`,
-        series: `${$inputSeries.value}`,
-        repeticoes: `${$inputRepeticoes.value}`,
-        carga: `${$inputCarga.value}`,
-        intervalo: `${$inputIntervalo.value}`,
-    }
-    exercicios.push(exercicio);
-}
-
-function criarInfoExercicios(arr) {
-    $ulExercicios.innerHTML = '';
-    arr.forEach(exercicio => {
-        const $li = document.createElement('li');
-        const series = `${exercicio.series ? `| ${exercicio.series} S ` : ``}`;
-        const reps = `${exercicio.repeticoes ? `| ${exercicio.repeticoes} R `: ``}`
-        const carga = `${exercicio.carga ? `| ${exercicio.carga} kg ` : ``}`;
-        const intervalo = `${exercicio.intervalo ? `| ${exercicio.intervalo} seg.` : ``}`;
-        $li.innerHTML = `${exercicio.nome} ${series}${reps}${carga}${intervalo}`;
-        $ulExercicios.appendChild($li);
+function salvarExercicios() {
+    exercicios = [];
+    const lis = $olExercicios.querySelectorAll('li');
+    lis.forEach(li => {
+        const series = li.querySelector('[data-info="series"]');
+        const repeticoes = li.querySelector('[data-info="repeticoes"]');
+        const carga = li.querySelector('[data-info="carga"]'); 
+        const duracao = li.querySelector('[data-info="duracao"]');
+        const intervalo = li.querySelector('[data-info="intervalo"]');
+        
+        const exercicio = {
+            id: id(exercicios),
+            nome: `${li.querySelector('[data-info="nome"]').innerHTML}`,
+        }
+        if (series) exercicio.series = series.innerHTML;
+        if (repeticoes) exercicio.repeticoes = repeticoes.innerHTML;
+        if (carga) exercicio.carga = carga.innerHTML;
+        if (duracao) exercicio.duracao = duracao.innerHTML;
+        if (intervalo) exercicio.intervalo = intervalo.innerHTML;
+        
+        exercicios.push(exercicio);
     })
 }
 
-$btnSalvarTreino.addEventListener('click', (e) => {
+function criarInfoExercicio() {
+    const $li = document.createElement('li');
+    const nome = `<span data-info='nome'>${$inputNomeExercicio.value}</span>`
+    
+    const series = `${$inputSeries.value ? 
+        ` <span data-info='series'>${$inputSeries.value}</span> <i class="fa-solid fa-xmark xmark-icon"></i> ` : ``}`;
+    
+    const reps = `${$inputRepeticoes.value ? 
+        ` <span data-info='repeticoes'>${$inputRepeticoes.value}</span> rep. ` : ``}`
+    
+    const carga = `${$inputCarga.value ? 
+        ` <i class="fa-solid fa-dumbbell dumbbell-icon"></i> <span data-info='carga'>${$inputCarga.value}</span> kg ` : ``}`;
+    
+    const duracao = `${$inputDuracao.value ? 
+        ` <i class="fa-solid fa-stopwatch stopwatch-icon"></i> <span data-info='duracao'>${$inputDuracao.value}</span> seg. ` : ``}`;
+
+    const intervalo = `${$inputIntervalo.value ? 
+        ` <i class="fa-regular fa-clock clock-icon"></i> <span data-info='intervalo'>${$inputIntervalo.value}</span> seg.` : ``}`;
+
+    $li.innerHTML = `
+            <div class="row align-items-center">
+                <div class="col">
+                    ${nome}${series || reps || carga ? '<br>' : ''}${series}${reps}${carga}${duracao || intervalo ? '<br>' : ''}${duracao}${intervalo}
+                </div>
+                <div class="col-2">
+                    <i class="fa-solid fa-delete-left delete-icon" id="delete"></i>
+                </div>
+            </div>
+            `;
+    $li.querySelector('#delete').addEventListener('click', function () {
+        this.parentNode.parentNode.parentNode.remove();
+    })
+    $olExercicios.appendChild($li);
+
+}
+
+$btnSalvarTreino.addEventListener('click', () => {
+    salvarExercicios()
     if (exercicios.length !== 0) {
         const resposta = confirm('Deseja salvar o treino?');
-        if (resposta === true) { 
+        if (resposta === true) {
             salvarTreino();
             criarTreinos(treinos);
             $allInfos.forEach((info) => info.textContent = '');
             $allInputs.forEach((input) => input.value = '');
             exercicios = [];
-            $ulExercicios.innerHTML = '';
+            $olExercicios.innerHTML = '';
             $inputNomeTreino.removeAttribute('disabled', '')
             $inputDescricao.removeAttribute('disabled', '')
             $form.querySelector('#infos-treino').classList.add('d-none')
@@ -226,7 +291,7 @@ function criarTreinos(treinos) {
         // }))
 
         $treinos.appendChild($divTreino);
-        $divTreino.querySelector('.btnApagarTreino').addEventListener('click', function() {
+        $divTreino.querySelector('.btnApagarTreino').addEventListener('click', function () {
             const element = this.parentNode.parentNode.parentNode;
             apagarTreino(element)
             apagarBtnTreino(element)

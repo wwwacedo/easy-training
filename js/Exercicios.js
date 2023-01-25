@@ -2,13 +2,16 @@ export default function Exercicios({exercicios}) {
     return exercicios.map((exercicio) => {
         return `
         <div>
-        <div class="card card-body card-body-exercicio mx-3">
-            <div class="fw-bold fs-5"><span class="id-exercicio">${exercicio.id}</span> - <span class="fs-6">${exercicio.nome}</span></div>        
-            ${exercicio.series ? `<span>Séries: ${exercicio.series}</span>` : ''}
-            ${exercicio.repeticoes ? `<span>Repetições: ${exercicio.repeticoes}</span>` : ''}
-            ${exercicio.carga ? `<span>Carga: ${exercicio.carga} kg</span>` : ''}
-            ${exercicio.intervalo ? `<span>Intervalo: ${exercicio.intervalo} seg.</span>` : ''}
-        </div>
+            <div class="card card-body card-body-exercicio mx-1">
+                <div class="fw-bold fs-6"><span class="id-exercicio">${exercicio.id}</span> - <span class="fs-6">${exercicio.nome}</span></div>        
+                <div>
+                ${exercicio.series ? `<span>${exercicio.series} <i class="fa-solid fa-xmark xmark-icon"></i></span>` : ''}
+                ${exercicio.repeticoes ? `<span>${exercicio.repeticoes} rep.</span>` : ''}
+                ${exercicio.carga ? `<span><i class="fa-solid fa-dumbbell dumbbell-icon"></i> ${exercicio.carga} kg</span>` : ''}
+                ${exercicio.duracao ? `<span><i class="fa-solid fa-stopwatch stopwatch-icon"></i> ${exercicio.duracao} seg.</span>` : ''}
+                ${exercicio.intervalo ? `<span><i class="fa-regular fa-clock clock-icon"></i> ${exercicio.intervalo} seg.</span>` : ''}
+                </div>
+            </div>
         
         <dialog id="exercicioDialog">
             <form method="dialog">

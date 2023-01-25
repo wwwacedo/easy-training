@@ -10,16 +10,20 @@ export default function InputsExercicio(id) {
             <input type="number" class="form-control border border-secondary rounded-3" id="series" placeholder="Séries" min="1" max="999">
             <label for="series">Séries</label>
         </div>  
-        <div class="form-floating ms-1 col">
+        <div class="form-floating mx-1 col">
             <input type="number" class="form-control border border-secondary rounded-3" id="repeticoes" placeholder="Repetições" min="1" max="999">
             <label for="repeticoes">Repetições</label>
+        </div>
+        <div class="form-floating ms-1 col">
+            <input type="number" class="form-control border border-secondary rounded-3" id="carga" min="1" max="999" placeholder="Carga">
+            <label for="carga">Carga (kg)</label>
         </div>
     </div>
     
     <div class="row g-1 mt-2">
         <div class="form-floating me-1 col">
-            <input type="number" class="form-control border border-secondary rounded-3" id="carga" min="1" max="999" placeholder="Carga">
-            <label for="carga">Carga (kg)</label>
+            <input type="number" class="form-control border border-secondary rounded-3" id="duracao" min="1" max="999" placeholder="Duração (seg.)">
+            <label for="duracao">Duração (seg.)</label>
         </div>
 
         <div class="form-floating ms-1 col">
