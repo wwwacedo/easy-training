@@ -3,10 +3,14 @@ export default function Exercicios({exercicios}) {
         return `
         <div>
             <div class="card card-body card-body-exercicio mx-1">
-                <div class="fw-bold fs-6"><span class="id-exercicio">${exercicio.id}</span> - <span class="fs-6">${exercicio.nome}</span></div>        
                 
+                <div class="fw-bold fs-6 titulo-exercicio pb-1"><span class="id-exercicio fw-bold me-2">${exercicio.id}</span><span class="fs-6">${exercicio.nome}</span></div>        
+<div>                    
                 ${exercicio.series ? `<span class="small">${exercicio.series} <i class="fa-solid fa-xmark xmark-icon"></i></span>` : ''}
-                ${exercicio.repeticoes ? `<span class="small">${exercicio.repeticoes} rep.</span>` : ''}
+
+                ${exercicio.repeticoes ? `<span class="small">${exercicio.repeticoes} reps.</span>` : ''}
+</div>
+
                 ${exercicio.carga ? `
                     <span class="small row">
                         <div class="col-1"><i class="fa-solid fa-dumbbell dumbbell-icon"></i></div>
