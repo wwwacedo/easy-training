@@ -20,18 +20,18 @@ img {
 
 body {
     color: var(--cinza-escuro);
+    font-family: 'Public Sans', sans-serif;
 }
 
 #title {
     background-color: var(--cinza-escuro);
     color: var(--branco);  
-    font-family: 'Encode Sans Condensed', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nippo', sans-serif;
 }
 
 main {
     background-color: var(--cinza-escuro);
-    height: 100%;
+    height: 100%; 
     min-height: 100vh;
 }
 
@@ -146,7 +146,7 @@ li:last-child {
     color: var(--laranja);
 }
 
-.clock-icon {
+.hand-icon {
     color: var(--azul-claro);
 }
 
@@ -161,9 +161,44 @@ li:last-child {
 #footer {
     background-color: #000000;
     color: var(--branco);
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
+    
+    
 }
 
 .tech-icon {
     scale: 120%
+}
+
+.network-icon {
+    scale: 150%
+}
+
+#linkedin {
+    color: #2E66C2;
+}
+
+#github {
+    color: var(--branco);
+}
+
+#html {
+    color: var(--rosa);
+}
+
+#css {
+    color: var(--azul-escuro);
+}
+
+#js {
+    color: var(--amarelo);
+}
+
+#bootstrap {
+    color: #702DF5;
+}
+
+#fontawesome {
+    color: var(--azul-claro);
 }

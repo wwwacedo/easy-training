@@ -19,7 +19,7 @@ export default function Exercicios({exercicios}) {
                     </span>` : ''}
                 ${exercicio.intervalo ? `
                     <span class="small row">
-                        <div class="col-1"><i class="fa-regular fa-clock clock-icon"></i></div> 
+                        <div class="col-1"><i class="fa-solid fa-hand hand-icon"></i></div> 
                         <div class="col">${exercicio.intervalo} seg.</div>
                     </span>` : ''}
                 ${exercicio.observacao ? `
