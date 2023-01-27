@@ -51,6 +51,12 @@ main {
     border: 1px solid var(--branco);
 }
 
+.inputs {
+    background-color: var(--branco);
+}
+
+
+
 #exercicios {
     color: var(--branco);
     border: 1px solid var(--cinza-claro)
@@ -87,6 +93,7 @@ main {
 
 .botao-treino {
     background-color: var(--azul-escuro);
+    color: var(--branco);
 }
 
 .botao-add-exercicio {
@@ -202,43 +209,19 @@ li:last-child {
 }
 
 .titulo-exercicio {
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    background-color: var(--branco);
+    color: var(--cinza-escuro);
 
 }
 
-.id-exercicio {
-    border-radius: 50%;
+/* para fazer o número do exercício com uma `bolinha` */
+/* .id-exercicio { */
+    /* border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
-    height: 30px;
-    background-color: var(--branco);
-    color: #252735;
-}
-
-/* .item {
-    list-style: none;
-    padding: 0.6em 2em;
-    background: #FFFFFF;
-    border-radius: 10px;
-    margin: 0 0 1em;
-    width: 100%;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    gap: 1em;
-    font-size: 20px;
-}
-
-.item strong {
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    Background: #C5965F;
-    font-weight: 400;
-} */
+    height: 30px; */
+    /* background-color: var(--branco); */
+/* } */
