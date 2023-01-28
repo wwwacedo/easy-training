@@ -6,7 +6,7 @@ Uma aplicação web para montar treinos de academia e salvar os dados no localSt
 
 ***
 
-####Como funciona o  aplicativo
+## Como funciona o  aplicativo
 1. Insira os dados do treino (nome e descrição);
 2. Insira os dados do exercício e pressione o botão 'ADICIONAR EXERCÍCIO';
 3. Perceba que as informações dos exercícios vão sendo dinamicamente criadas acima do botão 'ADICIONAR EXERCÍCIO', de forma que você pode verificar, em tempo real, quais exercícios compõe o seu treino; 
@@ -15,7 +15,7 @@ Uma aplicação web para montar treinos de academia e salvar os dados no localSt
 Observação: campos obrigatórios para salvar um exercício: nome do treino e nome do exercício, apenas.
 
 ***
-####Esclarecimentos adicionais
+## Esclarecimentos adicionais
 Este projeto foi desenvolvido por dois motivos:
 
 1. aplicação prática: desenvolvi essa aplicação como uma forma de praticar os ensinamentos do curso 'JavaScript na Web: armazenando dados no navegador', da Alura; 
@@ -23,7 +23,7 @@ Este projeto foi desenvolvido por dois motivos:
 
 Além disso, essa aplicação teve o seu escopo reduzido, não sendo possível editar os treinos salvos.
 ***
-####Agradecimentos
+## Agradecimentos
 Necessário agradecer a ajuda da incrível Nathalie Folco, minha esposa, pelas dicas com a estética da interface. Sem ela, essa aplicação seria, digamos, 'visualmente pouquíssimo apelativa', rs. 
 
 ***
