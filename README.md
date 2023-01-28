@@ -1,6 +1,6 @@
 ![easy training](./images/nome.png) 
 
-[easy-training.vercel.app](easy-training.vercel.app)
+[easy-training.vercel.app](https://easy-training.vercel.app/)
 
 Uma aplicação web para montar treinos de academia e salvar os dados no localStorage do navegador.
 
